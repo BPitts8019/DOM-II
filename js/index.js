@@ -9,18 +9,26 @@
    
    //    overlays[0].style.opacity = (overlays[0].style.opacity)? "" : "1";
    // };
-   const togglePicBlur = event => {
-      event.currentTarget.style.filter = (event.currentTarget.style.filter)? "" : "blur(5px)";
+   const togglePicChange = event => {
+      event.currentTarget.style.filter = (event.currentTarget.style.filter)? "" : "hue-rotate(360deg)";
+   };
+   const popElement = event => {
+      event.currentTarget.style.display = "none";
+
+      setTimeout(elem => {
+         elem.style.display = "";
+      }, 5000, event.currentTarget);
    };
 
    //get page elements
    const images = document.querySelectorAll("img");
    const navBar = document.querySelector(".main-navigation");
+   const h2Tags = document.querySelectorAll("h2");
 
    //setup event listeners
    images.forEach(img => {
-      img.addEventListener("mouseenter", togglePicBlur); 
-      img.addEventListener("mouseleave", togglePicBlur);
+      img.addEventListener("mouseenter", togglePicChange); 
+      img.addEventListener("mouseleave", togglePicChange);
    });
 
    document.addEventListener("keydown", event => {
@@ -42,4 +50,9 @@
       }
    });
 
+   h2Tags.forEach(h2 => {
+      h2.addEventListener("dblclick", popElement);
+   });
+
+   
 })();
