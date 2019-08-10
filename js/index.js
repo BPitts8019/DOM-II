@@ -15,11 +15,31 @@
 
    //get page elements
    const images = document.querySelectorAll("img");
+   const navBar = document.querySelector(".main-navigation");
 
    //setup event listeners
    images.forEach(img => {
       img.addEventListener("mouseenter", togglePicBlur); 
       img.addEventListener("mouseleave", togglePicBlur);
+   });
+
+   document.addEventListener("keydown", event => {
+      switch (event.code) {
+      case "KeyW":
+         navBar.style.backgroundColor = "lightCoral";
+         break;
+      case "KeyA":
+         navBar.style.backgroundColor = "khaki";
+         break;
+      case "KeyS":
+         navBar.style.backgroundColor = "lightSkyBlue";
+         break;
+      case "KeyD":
+         navBar.style.backgroundColor = "paleGreen";
+         break;
+      default:
+         navBar.style.backgroundColor = "";
+      }
    });
 
 })();
