@@ -18,6 +18,7 @@
    const h2Tags = document.querySelectorAll("h2");
    const navBar = document.querySelector(".main-navigation");
    const navLinks = document.querySelectorAll(".nav-link");
+   let scrollCount = 0;
 
    //setup event listeners
    home.addEventListener("dblclick", () => {
@@ -49,6 +50,15 @@
          break;
       default:
          navBar.style.backgroundColor = "";
+      }
+   });
+
+   document.addEventListener("scroll", event => {
+      scrollCount++;
+      
+      if (scrollCount % 120 === 0) {
+         scrollCount = 0;
+         alert("That's right! The Fun Bus is awesome!");
       }
    });
    
